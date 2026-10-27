@@ -1,0 +1,142 @@
+# Task 20: Sort Dataset
+
+**Track:** AI & ML  
+**Tools:** Python, Pandas, Jupyter Notebook / Python  
+**Task:** Sort a dataset using numerical and categorical columns in ascending and descending order.
+
+## 1. Project Overview
+
+This project demonstrates how to organize and analyze a tabular dataset using the Pandas `sort_values()` method. A sample employee dataset is created directly in the Python code, so a separate input CSV file is not required.
+
+## 2. Objectives
+
+- Sort numerical values in ascending order.
+- Sort numerical values in descending order.
+- Sort categorical/text values alphabetically.
+- Sort a DataFrame using more than one column.
+- Export sorted results as CSV files.
+
+## 3. Dataset
+
+The sample employee dataset contains these columns:
+
+- `Employee_ID` — employee identifier
+- `Name` — employee name
+- `Department` — department name
+- `Age` — employee age
+- `Salary` — sample salary value
+- `Performance_Score` — sample performance score
+
+The data is illustrative and is included inside `sort_dataset.py`.
+
+## 4. Requirements
+
+- Python 3.9 or later
+- Pandas
+
+Install Pandas:
+
+```bash
+python -m pip install pandas
+```
+
+## 5. How to Run
+
+1. Save `sort_dataset.py` to a folder.
+2. Open a terminal in that folder.
+3. Install Pandas if it is not already installed.
+4. Run:
+
+```bash
+python sort_dataset.py
+```
+
+The program prints the original dataset and each sorted result in the terminal.
+
+### Run in Jupyter Notebook
+
+You can also copy the code into a Jupyter Notebook cell and run it. The CSV files are saved to the notebook's current working directory.
+
+## 6. Sorting Examples
+
+### A. Ascending numerical sort
+
+```python
+df.sort_values(by="Age", ascending=True)
+```
+
+Sorts age from the smallest value to the largest.
+
+### B. Descending numerical sort
+
+```python
+df.sort_values(by="Salary", ascending=False)
+```
+
+Sorts salary from the largest value to the smallest. `ascending=False` means descending order.
+
+### C. Ascending categorical sort
+
+```python
+df.sort_values(by="Name", ascending=True)
+```
+
+Sorts employee names alphabetically from A to Z.
+
+### D. Descending categorical sort
+
+```python
+df.sort_values(by="Department", ascending=False)
+```
+
+Sorts department names in reverse alphabetical order.
+
+### E. Multiple-column sort
+
+```python
+df.sort_values(
+    by=["Department", "Salary"],
+    ascending=[True, False]
+)
+```
+
+First sorts by department A–Z. Within each department, it sorts salary from highest to lowest.
+
+## 7. Output Files
+
+After running the program, these files are created:
+
+- `employees_age_ascending.csv`
+- `employees_salary_descending.csv`
+- `employees_name_ascending.csv`
+- `employees_department_descending.csv`
+- `employees_multi_column_sorted.csv`
+
+## 8. Key Learning
+
+- A Pandas DataFrame stores data in rows and columns.
+- `sort_values()` sorts rows based on one or more columns.
+- `ascending=True` sorts in increasing or A–Z order.
+- `ascending=False` sorts in decreasing or Z–A order.
+- When sorting multiple columns, provide a list of column names and a corresponding list of sorting directions.
+
+## 9. Conclusion
+
+The task demonstrates how Pandas can sort numerical and categorical data in different orders. Multi-column sorting makes datasets easier to organize and inspect, and exporting the results to CSV makes them reusable in other tools.
+
+## 10. Interview Questions
+
+**1. How do you sort a DataFrame?**  
+Use `DataFrame.sort_values(by="column_name")`.
+
+**2. What does `ascending=False` do?**  
+It sorts values in descending order.
+
+**3. Can a DataFrame be sorted by multiple columns?**  
+Yes. Pass a list of column names to `by` and a list of Boolean values to `ascending`.
+
+**4. Does `sort_values()` change the original DataFrame by default?**  
+No. It returns a sorted DataFrame; assign the result to a variable to keep it.
+
+**5. What is Pandas?**  
+Pandas is a Python library used to work with structured data, especially tables and CSV files.
